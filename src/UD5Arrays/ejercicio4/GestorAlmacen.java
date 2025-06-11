@@ -57,5 +57,20 @@ public class GestorAlmacen {
         System.out.println("Código del artículo que desea eliminar: ");
         String codigo=entrada.nextLine();
     
+        Articulo[] articulos=almacen.getArticulos();
+
+        boolean eliminado=false;
+
+        for (int i = 0; i < articulos.length; i++) {
+            if (articulos[i]!=null && articulos[i].getCodigo().equals(codigo)) {
+                articulos[i]=null;
+                break;
+            }
+        }
+        if (eliminado) {
+            System.out.println("Artículo eliminado correctamente.");
+        }else{
+            System.out.println("No se encontró un artículo con ese código.");
+        }
     }
 }
